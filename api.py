@@ -51,7 +51,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 # <editor-fold desc="Server Constant Definition">
-SERVER_ROOT = "C://HugoBot/Production/HugoBotServer"
+SERVER_ROOT = "C:\Server_final_project_10.9\Visualization\HugoBotServer"
 DATASETS_ROOT = SERVER_ROOT + '/Datasets'
 RAW_DATA_HEADER_FORMAT = ["EntityID", "TemporalPropertyID", "TimeStamp", "TemporalPropertyValue"]
 VMAP_HEADER_FORMAT = ["Variable ID", "Variable Name", "Description"]
