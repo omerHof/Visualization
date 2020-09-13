@@ -1,4 +1,4 @@
-import ParseOutputFile
+from Visualization import ParseOutputFile
 import operator as op
 from functools import reduce
 import json
@@ -8,7 +8,7 @@ from scipy import stats
 from scipy.stats import sem, t
 from scipy import mean
 from collections import Counter
-from SupportingInstance import SupportingInstance
+from Visualization.SupportingInstance import SupportingInstance
 
 
 

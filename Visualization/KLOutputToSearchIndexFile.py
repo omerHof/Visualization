@@ -1,7 +1,7 @@
 """ This class turns an output file from the Karma-lego algorithm to an index file that is used for searching
     the constructor gets a path to the file and a path to the desierable location of the index file.
     then the object creates the index file in that location"""
-import Index
+from Visualization import Index
 import traceback
 import re
 
@@ -84,7 +84,7 @@ class KLOutputToSearchIndexFile:
                 m_hs = round( float(splited_line[self._TIRP_M_HS_INDEX]), 2 )
                 ######################3
                 # tirp = Index.find_Path_of_tirps(symbols=splited_line[self._TIRP_SYM_INDEX],rels=splited_line[self._TIRP_REL_INDEX], data_set_path=self._data_Set_Path,states=states)
-                tirp = Index.find_Path_of_tirps(symbols=splited_line[self._TIRP_SYM_INDEX],rels=splited_line[self._TIRP_REL_INDEX], data_set_path=self._data_Set_Path,states=states)[-1]
+                tirp = Index.find_Path_of_tirps(symbols=splited_line[self._TIRP_SYM_INDEX], rels=splited_line[self._TIRP_REL_INDEX], data_set_path=self._data_Set_Path, states=states)[-1]
                 # if tirp is None:
                 #     print("guy")
                 mean_offset_from_first_symbol = re.sub(",", "|",str(tirp.get_mean_offset_from_first_symbol()))

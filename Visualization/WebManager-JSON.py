@@ -3,18 +3,16 @@ import os
 import sys
 import json
 import csv
-import PreProccesing
+from Visualization import PreProccesing, ParseOutputFile, Index
 import time
-import Index
-import ParseOutputFile
 import shutil
 import re
 import traceback
-from TIRP import TIRP
+from Visualization.TIRP import TIRP
 from collections import namedtuple
-from KLOutputToSearchIndexFile import KLOutputToSearchIndexFile
-from hugobotPropertiesBounds import hugobotPropertiesBounds
-from SearchInIndexFile import SearchInIndexFile
+from Visualization.KLOutputToSearchIndexFile import KLOutputToSearchIndexFile
+from Visualization.hugobotPropertiesBounds import hugobotPropertiesBounds
+from Visualization.SearchInIndexFile import SearchInIndexFile
 
 
 import numpy as np
@@ -285,7 +283,7 @@ def uploaded_file():
                     with open(path + '/tempChunks_with_entities/root.txt', "w") as fs:
                         for r in root_elements:
                             fs.write("%s\n" % r)
-                    root_elements_without_entities = Index.parse_main_index(path, '/tempChunks/', '/tempChunks1/', states, states_by_name, 'class_0',min_ver_support,second_class_output_file_name, False)
+                    root_elements_without_entities = Index.parse_main_index(path, '/tempChunks/', '/tempChunks1/', states, states_by_name, 'class_0', min_ver_support, second_class_output_file_name, False)
                     with open(path + '/tempChunks/root.txt', "w") as fs_without:
                         for r in root_elements_without_entities:
                             fs_without.write("%s\n" % r)
@@ -335,7 +333,7 @@ def uploaded_file():
 
 @app.route('/getDataSets', methods=['GET'])
 def get_dataSets():
-    data_sets_names = os.listdir("./DataSets")
+    data_sets_names = os.listdir("DataSets")
     data_sets_details = list()
     for name in data_sets_names:
         settings_path = "./DataSets/" + name + "/settings.json"
@@ -545,7 +543,7 @@ def find_Path_of_tirps():
     symbols = data.get('symbols', '')
     relations = data.get('relations', '')
     to_add_entities = data.get('to_add_entities', '')
-    path_of_tirps = Index.find_Path_of_tirps(symbols=symbols, rels=relations, data_set_path=data_Set_Path, states=states,states_by_name=states_by_name, to_add_entities=to_add_entities)
+    path_of_tirps = Index.find_Path_of_tirps(symbols=symbols, rels=relations, data_set_path=data_Set_Path, states=states, states_by_name=states_by_name, to_add_entities=to_add_entities)
     for tirp in path_of_tirps:
         json_path_of_tirps.append(json.dumps(tirp, default=lambda x: x.__dict__))
     response = make_response(jsonify({'Path': json_path_of_tirps}))
@@ -554,7 +552,7 @@ def find_Path_of_tirps():
 
 
 if __name__ == '__main__':
-    handler = logging.FileHandler('./log.log')
+    handler = logging.FileHandler('log.log')
     handler.setLevel(logging.ERROR)
     app.debug = True  # allows for changes to be enacted without rerunning server
     app.logger.addHandler(handler)

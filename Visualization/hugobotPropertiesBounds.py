@@ -3,7 +3,7 @@ import shutil
 import itertools
 import pandas as pd
 import json
-from Property import Property
+from Visualization.Property import Property
 
 
 class hugobotPropertiesBounds:

@@ -1,8 +1,8 @@
-import ParseOutputFile
+from Visualization import ParseOutputFile
 import json
 import os
 import copy
-from TIRP import TIRP
+from Visualization.TIRP import TIRP
 
 TIRP_per_file = dict()
 

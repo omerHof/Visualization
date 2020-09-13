@@ -1,7 +1,7 @@
 import csv
 import sys
 import pandas as pd
-from Entity import Entity
+from Visualization.Entity import Entity
 from collections import Counter, defaultdict
 import json
 

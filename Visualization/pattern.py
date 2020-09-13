@@ -1,4 +1,4 @@
-from entity_tirp import EntityTIRP
+from Visualization.entity_tirp import EntityTIRP
 
 
 def get_str(symbols, relations):

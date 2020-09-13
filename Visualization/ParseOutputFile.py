@@ -2,9 +2,9 @@ import os.path
 import sys
 import json
 import re
-from TIRP import TIRP
-from SymbolicTimeInterval import SymbolicTimeInterval
-from SupportingInstance import SupportingInstance
+from Visualization.TIRP import TIRP
+from Visualization.SymbolicTimeInterval import SymbolicTimeInterval
+from Visualization.SupportingInstance import SupportingInstance
 rel_allen_seven = 7
 
 
