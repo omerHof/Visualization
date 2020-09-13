@@ -1,5 +1,5 @@
-from KarmaLego_Framework.TindexRelationEntry import TindexRelationEntry
-from KarmaLego_Framework.SupportingInstancesVector import SupportingInstancesVector
+from HugoBotServer.KarmaLego_Framework.TindexRelationEntry import TindexRelationEntry
+from HugoBotServer.KarmaLego_Framework.SupportingInstancesVector import SupportingInstancesVector
 
 
 class Tindex (object):

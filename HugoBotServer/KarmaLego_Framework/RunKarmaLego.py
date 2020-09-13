@@ -1,5 +1,5 @@
-from KarmaLego_Framework.Karma import Karma
-from KarmaLego_Framework.Lego import Lego
+from HugoBotServer.KarmaLego_Framework.Karma import Karma
+from HugoBotServer.KarmaLego_Framework.Lego import Lego
 import time
 import os
 import inspect

@@ -1,6 +1,6 @@
 from copy import copy, deepcopy
-from KarmaLego_Framework.TirpMatrix import TirpMatrix
-from KarmaLego_Framework.RelationHandler import RelationHandler
+from HugoBotServer.KarmaLego_Framework.TirpMatrix import TirpMatrix
+from HugoBotServer.KarmaLego_Framework.RelationHandler import RelationHandler
 import itertools
 import numpy as np
 

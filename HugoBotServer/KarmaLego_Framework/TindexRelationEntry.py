@@ -1,4 +1,4 @@
-from KarmaLego_Framework.SupportingInstancesVector import SupportingInstancesVector
+from HugoBotServer.KarmaLego_Framework.SupportingInstancesVector import SupportingInstancesVector
 
 
 class TindexRelationEntry (object):

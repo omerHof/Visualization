@@ -1,5 +1,5 @@
 import logging
-from KarmaLego_Framework.SymbolicTimeInterval import SymbolicTimeInterval
+from HugoBotServer.KarmaLego_Framework.SymbolicTimeInterval import SymbolicTimeInterval
 
 
 FORMAT = '%(asctime)-15s %(message)s'

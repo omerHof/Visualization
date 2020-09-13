@@ -1,10 +1,11 @@
 import operator
-from KarmaLego_Framework.RelationHandler import RelationHandler
-from Utils.parse import *
-from KarmaLego_Framework.Symbol import Symbol
-from KarmaLego_Framework.TIRP import TIRP
-from KarmaLego_Framework.Tindex import Tindex
-from KarmaLego_Framework.StiInstance import StiInstance
+from HugoBotServer.KarmaLego_Framework.RelationHandler import RelationHandler
+from ..Utils.parse import *
+from HugoBotServer.KarmaLego_Framework.Symbol import Symbol
+from HugoBotServer.KarmaLego_Framework.SymbolicTimeInterval import SymbolicTimeInterval
+from HugoBotServer.KarmaLego_Framework.TIRP import TIRP
+from HugoBotServer.KarmaLego_Framework.Tindex import Tindex
+from HugoBotServer.KarmaLego_Framework.StiInstance import StiInstance
 from collections import OrderedDict
 
 

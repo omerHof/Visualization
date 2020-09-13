@@ -1,8 +1,8 @@
 import os
-from KarmaLego_Framework.LegoTree import LegoTreeNode
-from KarmaLego_Framework.StiInstance import StiInstance
-from KarmaLego_Framework.TIRP import TIRP
-from KarmaLego_Framework.Karma import Karma
+from HugoBotServer.KarmaLego_Framework.LegoTree import LegoTreeNode
+from HugoBotServer.KarmaLego_Framework.StiInstance import StiInstance
+from HugoBotServer.KarmaLego_Framework.TIRP import TIRP
+from HugoBotServer.KarmaLego_Framework.Karma import Karma
 
 
 class Lego(object):

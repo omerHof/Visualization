@@ -333,7 +333,7 @@ def uploaded_file():
 
 @app.route('/getDataSets', methods=['GET'])
 def get_dataSets():
-    data_sets_names = os.listdir("DataSets")
+    data_sets_names = os.listdir("Visualization/DataSets")
     data_sets_details = list()
     for name in data_sets_names:
         settings_path = "./DataSets/" + name + "/settings.json"
