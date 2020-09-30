@@ -51,7 +51,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 
 # <editor-fold desc="Server Constant Definition">
-SERVER_ROOT = "C:\Server_final_project_10.9\Visualization\HugoBotServer"
+SERVER_ROOT = "C:\\Server_final_project_10.9\\Final_project\\HugoBotServer"
 DATASETS_ROOT = SERVER_ROOT + '/Datasets'
 RAW_DATA_HEADER_FORMAT = ["EntityID", "TemporalPropertyID", "TimeStamp", "TemporalPropertyValue"]
 VMAP_HEADER_FORMAT = ["Variable ID", "Variable Name", "Description"]
@@ -2149,7 +2149,7 @@ def upload_stepthree(current_user):
 # </editor-fold>
 
 
-# <editor-fold desc="Visualization Files">
+# <editor-fold desc="Final_project Files">
 @app.route("/checkIfVisualPossible", methods=["GET"])
 def check_if_visual_possible():
     dataset_name = request.args.get("dataset_name")
@@ -2162,7 +2162,7 @@ def check_if_visual_possible():
             header = kl.readline()
             second_line = kl.readline()
             if second_line == "":
-                return jsonify({'message': 'Cannot perform Visualization '
+                return jsonify({'message': 'Cannot perform Final_project '
                                            'as one or more of the KarmaLego outputs contain no TIRPs.'}), 500
             else:
                 return "OK", 200
@@ -2173,7 +2173,7 @@ def check_if_visual_possible():
                 header = kl_1.readline()
                 second_line_1 = kl_1.readline()
                 if second_line_1 == "":
-                    return jsonify({'message': 'Cannot perform Visualization '
+                    return jsonify({'message': 'Cannot perform Final_project '
                                                'as one or more of the KarmaLego outputs contain no TIRPs.'}), 500
 
             kl_class_0 = os.path.join(kl_path, "KL-class-0.0.txt")
@@ -2181,7 +2181,7 @@ def check_if_visual_possible():
                 header = kl_0.readline()
                 second_line_0 = kl_0.readline()
                 if second_line_0 == "":
-                    return jsonify({'message': 'Cannot perform Visualization '
+                    return jsonify({'message': 'Cannot perform Final_project '
                                                'as one or more of the KarmaLego outputs contain no TIRPs.'}), 500
             return "OK", 200
         except FileNotFoundError:
@@ -2927,7 +2927,7 @@ def get_dataSets():
     data_sets_names = os.listdir("Visualization/DataSets")
     data_sets_details = list()
     for name in data_sets_names:
-        settings_path = "./DataSets/" + name + "/settings.json"
+        settings_path = "Visualization/DataSets/" + name + "/settings.json"
         with open(settings_path, 'r') as fs:
             settings = json.load(fs)
         data_sets_details.append(settings)
@@ -2976,7 +2976,7 @@ def delete_dataset():
 def get_entities():
     if request.method == 'POST':
         data_set_name = request.form['data_set_name']
-        path = 'DataSets/' + data_set_name + '/entities.json'
+        path = 'Visualization/DataSets/' + data_set_name + '/entities.json'
         with open(path, 'r') as fs:
             entities = fs.readlines()
     return jsonify({'Entities': entities})
@@ -2987,7 +2987,7 @@ def get_states():
     # global states, states_by_name
     if request.method == 'POST':
         data_set_name = request.form['data_set_name']
-        path = 'DataSets/' + data_set_name + '/states.json'
+        path = 'Visualization/DataSets/' + data_set_name + '/states.json'
         with open(path, 'r') as fs:
             # states_from_file = json.load(fs)
             states_from_file = fs.readlines()
@@ -2999,7 +2999,7 @@ def get_states():
 @app.route('/initiateTirps', methods=['POST'])
 def initiate_tirps():
     data_set_name = request.form['data_set_name']
-    path = 'DataSets/' + data_set_name
+    path = 'Visualization/DataSets/' + data_set_name
     # global states, states_by_name
     # if os.path.exists(path + '/states.json'):
     #     states, states_by_name = ParseOutputFile.parse_states_file(path + '/states.json')
@@ -3020,7 +3020,7 @@ def get_sub_tree():
     # tirp_obj = TIRP()
     # tirp_obj.__dict__.clear()
     # tirp_obj.__dict__.update(TIRP_from_req)
-    path = 'DataSets/' + data_set_name
+    path = 'Visualization/DataSets/' + data_set_name
     states, states_by_name = ParseOutputFile.parse_states_file(path + '/states.json')
     # tirp = Index.get_sub_tree(tirp_obj, states, states_by_name, path)
     # s = json.dumps(tirp, default=lambda x: x.__dict__)
@@ -3044,7 +3044,7 @@ def getHugobotBounds():
     if os.path.isdir('UploadingDataSets/' + data_set_name):
         prop_dic_path = 'UploadingDataSets/' + data_set_name + '/propDic.json'
     else:
-        prop_dic_path = 'DataSets/' + data_set_name + '/propDic.json'
+        prop_dic_path = 'Visualization/DataSets/' + data_set_name + '/propDic.json'
 
     if os.path.isfile(prop_dic_path):
         with open(prop_dic_path, "r") as out_file:
@@ -3066,7 +3066,7 @@ def getHugobotBounds():
 @app.route('/getValuesPerBinsDic', methods=['POST'])
 def get_values_per_entity():
     data_set_name = request.form['data_set_name']
-    entity_values_dic_path = 'DataSets/' + data_set_name + '/valuesPerBins.json'
+    entity_values_dic_path = 'Visualization/DataSets/' + data_set_name + '/valuesPerBins.json'
 
     if os.path.isfile(entity_values_dic_path):
         with open(entity_values_dic_path, "r") as out_file:
@@ -3078,7 +3078,7 @@ def get_values_per_entity():
 @app.route('/getValuesPerClass', methods=['POST'])
 def get_values_per_class():
     data_set_name = request.form['data_set_name']
-    entity_values_dic_path = 'DataSets/' + data_set_name + '/rawDataPerClass.json'
+    entity_values_dic_path = 'Visualization/DataSets/' + data_set_name + '/rawDataPerClass.json'
 
     if os.path.isfile(entity_values_dic_path):
         with open(entity_values_dic_path, "r") as out_file:
@@ -3091,7 +3091,7 @@ def get_values_per_class():
 def searchTirps():
     data = request.get_json()
     data_set_name = data.get('data_set_name', '')
-    path = 'DataSets/' + data_set_name
+    path = 'Visualization/DataSets/' + data_set_name
     search_in_class_1 = data.get('search_in_class_1', '')
     startsList = data.get('startsList', '')
     containList = data.get('containList', '')
@@ -3128,7 +3128,7 @@ def find_Path_of_tirps():
     json_path_of_tirps = []
     data = request.get_json()
     data_set_name = data.get('data_set_name', '')
-    data_Set_Path = 'DataSets/' + data_set_name
+    data_Set_Path = 'Visualization/DataSets/' + data_set_name
     # if len(states) == 0 or len(states_by_name) == 0:
     states, states_by_name = ParseOutputFile.parse_states_file(data_Set_Path + '/states.json')
     symbols = data.get('symbols', '')
@@ -3148,9 +3148,9 @@ def find_Path_of_tirps():
 owner application runs on port 8080 but to the outside world it looks like port 80
 """
 if __name__ == '__main__':
-    handler = logging.FileHandler('log.log')
+    handler = logging.FileHandler('C:\\Server_final_project_10.9\\Final_project\\log.log')
     handler.setLevel(logging.ERROR)
     app.debug = True  # allows for changes to be enacted without rerunning server
     app.logger.addHandler(handler)
     app.config["JSON_SORT_KEYS"] = False
-    app.run(host='0.0.0.0', port=8080, threaded=True)
+    app.run(host='127.0.0.1', port=5000, threaded=True)
